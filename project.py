@@ -1,4 +1,4 @@
-def LeapYear (leap):                                  # Definition of Leap Year
+def LeapYear (leap):            # Definition of Leap Year
     if leap == 0 :
         return False
     elif leap % 4 == 0 and leap % 100 != 0:
@@ -26,7 +26,7 @@ class Date:
     year = 0
     month = 1
     day = 0
-    def date_to_day (self , a , b , c):                                  # Converting to Day
+    def date_to_day (self , a , b , c):                                 # Converting to Day
         for i in range (1 , a + 1):
             if LeapYear (i) == True:
                 self.convert = self.convert + 1
@@ -45,7 +45,7 @@ class Date:
         return self.convert
 
 
-    def show1 (self):                               # Showing Date with Numeral Characters
+    def show1 (self):           # Showing the Date with Numeral Characters
         if self.d < 10:
             print ("0" , end="")
         print (self.d , end="-")
@@ -55,13 +55,13 @@ class Date:
         print (self.y)
 
 
-    def show2 (self):                             # Showing Date with String Month
+    def show2 (self):           # Showing the Date with String Month
         if self.d < 10:
             print ("0" , end="")
         print (self.d , end="-")
         print (self.MonthList[self.m] , self.y , sep= "-")
 
-    def show3 (self):                             # Showing Date with Weekdays plus String Month
+    def show3 (self):           # Showing the Date with Weekdays and also String Month
         p = self.date_to_day (self.y , self.m , self.d)
         print (self.WeekList[self.WeekDays] , end= ",")
         if self.d < 10:
@@ -69,7 +69,7 @@ class Date:
         print (self.d , end= "-")
         print (self.MonthList[self.m] , self.y , sep= "-")
 
-    def show4 (self):                           # Showing Result of Sum If Only You Need to Add Days
+    def show4 (self):           # Showing the Result of Sum if You Want to Add Days
         if self.y < 10:
             print ("0" , end= "" )
         print (self.y , end= "-" )
@@ -78,11 +78,12 @@ class Date:
         print (self.m , end= "-")
         if self.d < 10:
             print ("0" , end= "")
+
         print (self.d , " + " , self.plus , " = " , end= "")
+        print (self.year , self.month , self.day , sep="-" )
 
-        print (self.y , self.month , self.day , sep="-" )
-
-    def get (self):
+    def get (self):             
+       
         self.y = int (input("Enter Year (1900 - 3000): "))
         while self.y < 1900 or self.y > 3000:
 
@@ -128,8 +129,9 @@ class Date:
                 self.d = int (input("Enter Day (1 - 30): "))
         self.plus = int (input("Enter a Number that You Want to Plus with: "))
         
-            #               Plus                #
+
             
+    def get2(self):                                # The Result of Sum Definition
         self.number= self.plus + self.convert
         while self.number >= 365 :
             if LeapYear(self.year) == True:
@@ -161,8 +163,9 @@ class Date:
 
 
 x = Date()
-x.get()
+x.get() 
 x.show1()
 x.show2()
 x.show3()
+x.get2()
 x.show4()
