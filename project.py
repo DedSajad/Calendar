@@ -45,7 +45,7 @@ class Date:
         return self.convert
 
 
-    def show1 (self):                               # Showing Date with Number Characters
+    def show1 (self):                               # Showing Date with Numeral Characters
         if self.d < 10:
             print ("0" , end="")
         print (self.d , end="-")
